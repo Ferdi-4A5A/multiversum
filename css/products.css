@@ -1,0 +1,28 @@
+.div-product-info {
+    margin-left: 148px;
+    padding: 13.5px 0px 13.5px 0px;
+}
+.div-img-product-info {
+    float: left;
+    width: 134px;
+    height: 81px;
+}
+.img-product-info {
+    float: left;
+    width: 134px;
+    height: 81px;
+}
+.product-price {
+    float: right;
+    text-align: right;
+}
+.product-price-total {
+    display: block;
+    margin-bottom: 31px;
+}
+.product-price-btw {
+    display: block;
+}
+.page-product-padding-top {
+    margin-top: 10px;
+}

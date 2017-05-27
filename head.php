@@ -1,5 +1,4 @@
-<head>
-    <title>Multiversum - de beste virtual reality brillen van het land</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <meta charset="utf-8" />
-</head>
+<meta charset="utf-8" />
+<title>Multiversum - de beste virtual reality brillen van het land</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link href="https://fonts.googleapis.com/css?family=Eczar:500" rel="stylesheet">

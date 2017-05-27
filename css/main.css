@@ -1,3 +1,10 @@
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
 * {
     box-sizing: border-box;
 }
@@ -10,9 +17,6 @@
     float: left;
     padding: 15px;
     border: solid black 1px;
-}
-html {
-    font-family: "Lucida Sans", sans-serif;
 }
 /* For mobile phones: */
 [class*="col-"] {
@@ -50,18 +54,28 @@ html {
 }
 
 .img-logo {
-    width: 100%;
+    width: 134px;
+    height: 75px;
+    float: left;
+    margin-top: 8px;
+}
+.header-text {
+    font-family: 'Eczar', serif;
+    font-size: 41px;
+    text-align: center;
+}
+.nav-nav ul {
+    padding: 0;
 }
 .nav-nav ul li {
-    /*display: inline;*/
-    /*width: 33%;*/
     display: inline-block;
     display: -moz-inline-box;
     *display: inline; /* For IE7 */
-    width: 32%;
+    width: 32.6%;
     text-align: center;
 }
 .nav-nav ul li a {
     text-decoration: none;
+    padding: 32px 36px 32px 36px;
+    border: solid black 1px;
 }
-
