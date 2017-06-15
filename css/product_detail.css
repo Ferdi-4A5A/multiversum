@@ -2,6 +2,28 @@
     width: 268px;
     height: 162px;
 }
-.text-align-center {
+.product-detail-div-image {
     text-align: center;
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+}
+.table-product-details tr:nth-child(odd) {
+    background: #66bb6a;
+}
+.table-product-details tr:nth-child(odd) td {
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+    padding: 8px;
+}
+.table-product-details tr:nth-child(even) {
+    background: #e5ffe5;
+}
+.table-product-details tr, td {
+    padding: 8px;
+}
+.btn-shopping-cart {
+    float: right;
+}
+.product-detail-description {
+    padding: 27px 0px 27px 7.5px;
 }

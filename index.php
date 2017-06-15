@@ -9,12 +9,14 @@
 
 - hoe doe je dat het beste met images voor products als een gebruiker ze moet uploaden ivm responsive image size?
 
-- winkelwagenpagina/betaalpagina/productdetailpagina(afmaken)/zoekfunctiepagina/contactpagina/footer
-- products.php nieuwe row aanmaken met een zoekfunctie, of ergens een a href naar de zoekfunctie
-- product_detail pagina specs vast uitwerken in een tabel of in div's oid
+- producten in db voegen en sequence AI maken en daarop alles DESC uitspugen zodat klant andere bovenaan kan zetten voor bepaalde tijd
+- betaalpagina(iDeal ?checkout? minimaal)
 
+- tablet/desktop afmaken + homepagina/contactpagina/footer/ + alles css
+
+- mini cms om producten CRUD te doen (/admin?)/zoekfunctiepagina(in products.php?)
+- alles beveiligen (SQL injections/img validation+hash in dbivm duplicates) etc
 - wireframe/ERD afmaken en functionaliteiten fixen
-- tablet/desktop afmaken
 
 -->
 

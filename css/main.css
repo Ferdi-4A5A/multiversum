@@ -16,11 +16,15 @@ body {
 [class*="col-"] {
     float: left;
     padding: 15px;
-    border: solid black 1px;
+    /*border: solid black 1px;*/
 }
 /* For mobile phones: */
 [class*="col-"] {
     width: 100%;
+}
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
 }
 @media only screen and (min-width: 600px) {
     /* For tablets: */
@@ -64,23 +68,13 @@ body {
     font-size: 41px;
     text-align: center;
 }
-.nav-nav ul {
-    padding: 0;
-}
-.nav-nav ul li {
-    display: inline-block;
-    display: -moz-inline-box;
-    *display: inline; /* For IE7 */
-    width: 32.6%;
+.navmenu {
     text-align: center;
 }
-.nav-nav ul li a {
+.navmenu a {
     text-decoration: none;
-    padding: 32px 0px 32px 0px;
-    margin-top: -32px;
-    margin-bottom: -32px;
     display: block;
-    border: solid black 1px;
+    padding: 15px;
 }
 .navbar {
     text-align: right;
