@@ -20,7 +20,12 @@ session_start();
     <a href="">Contact</a>
 </div>
 
-<div class="col-12 navbar">
+<div class="col-11 navbar">
+    <form method="post" action="">
+        <button type="submit" name="btn-delete-order">Verwijder order</button>
+    </form>
+</div>
+<div class="col-1 navbar">
     <a href="shopping_card.php">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
     </a>

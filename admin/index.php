@@ -12,7 +12,7 @@
 <?php include 'header.php' ?>
 
 <div class="col-m-12">
-    Hier kunt u producten invoeren
+    Hier kunt u uw producten invoeren
 </div>
 
 
@@ -38,11 +38,8 @@
         $uploaddir = '/media/sf_www/multiversum/img/product/';
         $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
-        if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-            echo "File is valid, and was successfully uploaded.\n";
-        } else {
-            echo "Possible file upload attack!\n";
-        }
+        move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
+        echo 'Product successfully added';
 
 //        // The file
 //        $filename = $_FILES['userfile']['name'];
@@ -75,7 +72,7 @@
             <input type="text" name="input-product-insert-highlight1" placeholder="Highlight 1"/>
             <input type="text" name="input-product-insert-highlight2" placeholder="Highlight 2"/>
             <input type="text" name="input-product-insert-highlight3" placeholder="Highlight 3"/>
-            <input type="text" name="input-product-insert-details" placeholder="Details"/>
+            <textarea style="width: 100%;height: 150px;" type="text" name="input-product-insert-details" placeholder="Details"></textarea>
             <input type="text" name="input-product-insert-stock" placeholder="Stock"/>
             <input type="text" name="input-product-insert-expected-delivery-days" placeholder="Expected delivery days"/>
             <input type="text" name="input-product-insert-price" placeholder="Prijs"/>

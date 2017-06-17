@@ -58,7 +58,7 @@
                     echo $row["productDetails"];
                 echo '</div>';
 
-                echo '<form method="get" action="shopping_card.php">';
+                echo '<form method="post" action="shopping_card.php">';
                     echo '<button type="submit" name="add-product" value="' . $row["productID"] . '" class="btn-shopping-cart"> In winkelwagen</button>';
                 echo '</form>';
         };
