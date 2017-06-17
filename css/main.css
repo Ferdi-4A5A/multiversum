@@ -82,3 +82,14 @@ body {
 .fa-shopping-cart:before {
     font-size: 34px;
 }
+
+
+
+/*admin*/
+
+.form-product-insert input[type=text] {
+    width: 100%;
+}
+.form-product-insert button[type=submit] {
+    width: 100%;
+}

@@ -31,6 +31,7 @@
     display: block;
 }
 .page-product-button {
+    width: 100%;
     background-color: #FFFFFF;
     cursor: pointer;
 }
@@ -56,7 +57,7 @@
     }
     .img-product-info {
         float: none;
-        width: 100%;
+        width: 53%;
         height: auto;
     }
     .product-description {
@@ -68,9 +69,6 @@
     }
     .product-add-to-cart {
         float: right;
-    }
-    .product-thumbnail-width {
-        width: 20%;
     }
 }
 @media only screen and (min-width: 768px) {

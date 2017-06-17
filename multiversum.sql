@@ -57,12 +57,13 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `orderIsOnline` varchar(50) DEFAULT NULL,
   `orderType` int(11) DEFAULT NULL COMMENT '0=shipping 1=payment',
   PRIMARY KEY (`orderID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Dumping data for table multiversum.orders: ~1 rows (approximately)
+-- Dumping data for table multiversum.orders: ~0 rows (approximately)
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` (`orderID`, `emailID`, `invoiceID`, `userID`, `orderCode`, `orderTitle`, `orderIsOnline`, `orderType`) VALUES
-	(8, NULL, NULL, NULL, '2', NULL, NULL, NULL);
+	(8, NULL, NULL, NULL, '2', NULL, NULL, NULL),
+	(9, NULL, NULL, NULL, '3', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 
@@ -73,28 +74,31 @@ CREATE TABLE IF NOT EXISTS `ordersProducts` (
   `productID` int(11) NOT NULL DEFAULT '0',
   `productAmount` int(11) NOT NULL,
   PRIMARY KEY (`orderProductID`)
-) ENGINE=InnoDB AUTO_INCREMENT=252 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=255 DEFAULT CHARSET=utf8;
 
--- Dumping data for table multiversum.ordersProducts: ~1 rows (approximately)
+-- Dumping data for table multiversum.ordersProducts: ~2 rows (approximately)
 /*!40000 ALTER TABLE `ordersProducts` DISABLE KEYS */;
 INSERT INTO `ordersProducts` (`orderProductID`, `orderID`, `productID`, `productAmount`) VALUES
-	(251, 8, 2, 1);
+	(251, 8, 2, 2),
+	(252, 8, 1, 5),
+	(253, 8, 3, 2),
+	(254, 9, 3, 6);
 /*!40000 ALTER TABLE `ordersProducts` ENABLE KEYS */;
 
 
 -- Dumping structure for table multiversum.products
 CREATE TABLE IF NOT EXISTS `products` (
   `productID` int(11) NOT NULL AUTO_INCREMENT,
-  `productEAN` varchar(50) NOT NULL,
+  `productEAN` varchar(255) NOT NULL,
   `productTitle` varchar(50) NOT NULL,
-  `productHighlight1` varchar(50) NOT NULL,
-  `productHighlight2` varchar(50) NOT NULL,
-  `productHighlight3` varchar(50) NOT NULL,
+  `productHighlight1` varchar(255) NOT NULL,
+  `productHighlight2` varchar(255) NOT NULL,
+  `productHighlight3` varchar(255) NOT NULL,
   `productDetails` text NOT NULL,
-  `productImage` varchar(50) NOT NULL,
-  `productStock` varchar(50) NOT NULL,
+  `productImage` varchar(255) NOT NULL,
+  `productStock` varchar(10) NOT NULL,
   `productExpectedDeliveryDays` varchar(50) NOT NULL,
-  `productPrice` varchar(50) NOT NULL,
+  `productPrice` decimal(10,2) NOT NULL,
   `productAfmeting` varchar(50) NOT NULL,
   `productGewicht` varchar(50) NOT NULL,
   `productKleur` varchar(50) NOT NULL,
@@ -103,14 +107,48 @@ CREATE TABLE IF NOT EXISTS `products` (
   `productIsSale` varchar(50) NOT NULL,
   `productSalePrice` varchar(50) NOT NULL,
   PRIMARY KEY (`productID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
--- Dumping data for table multiversum.products: ~3 rows (approximately)
+-- Dumping data for table multiversum.products: ~34 rows (approximately)
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` (`productID`, `productEAN`, `productTitle`, `productHighlight1`, `productHighlight2`, `productHighlight3`, `productDetails`, `productImage`, `productStock`, `productExpectedDeliveryDays`, `productPrice`, `productAfmeting`, `productGewicht`, `productKleur`, `productSequence`, `productIsOnline`, `productIsSale`, `productSalePrice`) VALUES
-	(1, '0815820020004', 'Oculus Rift', 'Goede bril', 'Mooie kleur', 'Zit goed', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla. nulla.', 'img/example.jpg', '2', '2', '588.73', '70x50x10cm', '2kg', 'Zwart', '1', '1', '', ''),
-	(2, '322334', 'rere', 'ere', 'rsthrts', 'rstbrstb', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla.', 'img/example.jpg', '3', '1', '324.43', '70x50x10cm', '4kg', 'Blauw', '2', '1', '', ''),
-	(3, '', 'hh', '', '', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet neque vitae justo bibendum lacinia. Curabitur sit amet est vestibulum, malesuada magna ac, iaculis ante. Nullam scelerisque purus a tortor blandit sodales. Mauris at dolor orci. Ut maximus lorem sed malesuada dictum. Phasellus et dictum diam. Sed sollicitudin nisi nec nunc finibus pulvinar. Vivamus condimentum diam vestibulum, auctor neque id, pharetra nulla.', 'img/example.jpg', '7', '', '123.55', '', '', '', '', '', '', '');
+	(1, '0471848768757, 4718487687572, 4718487689491, 4718487689507, 4718487693696, 4718487694723', 'HTC Vive', 'Een Vive Link Box', 'Twee draadloze controllers', 'oordopjes en twee Vive-basisstations', '', 'HTC_Vive.jpeg', '11', '', 929.00, '', '', '', '', '', '', ''),
+	(2, '0815820020004, 0815820020011, 0815820020066, 8158200200118', 'Oculus Rift', 'Voor en achterkant bevat sensoren zodat er 360 graden positionele tracking is', 'Geïntegreerde over je oren audio headset met 3D positionele geluidsweergave', 'Geïntegreerde hoge kwaliteit microfoon', 'Dankzij kartonnen brilletjes kan iedereen met een smartphone al een paar jaar eenvoudig een eerste blik in de virtuele wereld werpen. Met de introductie van de Oculus Rift, de HTC Vive en de PlayStation VR, is er sinds 2016 echter ook serieuze virtualrealityhardware voor consumenten beschikbaar. Microsoft werkt nog altijd aan zijn HoloLens voor augmented reality en bracht die bril dit jaar uit voor  ontwikkelaars. Daarnaast maakte de Windows 10-maker bekend dat computerfabrikanten volgend jaar vr-headsets gaan uitbrengen voor het Windows Holographic Platform. Dat is de omgeving binnen Windows 10 voor apps en toepassingen die gebruikmaken van virtual of augmented reality.', 'Oculus_Rift.png', '9', '', 599.00, '', '', '', '', '', '', ''),
+	(3, '0711719843757, 2750057115988', 'Sony PlayStation VR', 'Accelerometer, Gyroscoop', 'HDMI, USB 2.0', 'Headset bedraad, Kabels', '', 'Sony_Playstation.png', '4', '', 378.00, '', '', '', '', '', '', ''),
+	(4, '0780437918016, 8806088150192, 8806088150208, 8806088150239, 8806088157931', 'Samsung Galaxy Gear VR (v2)', 'Accelerometer, Gyroscoop', 'Wit', '318g', '', 'Samsung_Galaxy_Gear.jpeg', '14', '', 75.00, '', '', '', '', '', '', ''),
+	(5, '8806088503141, 8806088503240, 8806088503929, 8806088503936, 8806088504049, 8806088516585', 'Samsung Gear VR 2', 'Accelerometer, Gyroscoop', 'Zwart', '345g', '', 'Samsung_Gear_VR2.jpeg', '18', '', 65.00, '', '', '', '', '', '', ''),
+	(6, '4718487692866', 'HTC Vive Business Edition', 'Een Vive Link Box', 'Oordopjes en twee Vive-basisstations', 'Dedicated Business Edition customer support line', '', 'HTC_Vive_Business_Edition.jpeg', '2', '', 1399.00, '', '', '', '', '', '', ''),
+	(33, '', '', '', '', '', '', 'bscap048.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(34, '', '', '', '', '', '', 'bscap019.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(35, '', '', '', '', '', '', 'bscap019.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(36, '', '', '', '', '', '', 'bscap019.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(37, '', '', '', '', '', '', 'bscap019.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(38, '', '', '', '', '', '', 'bscap030.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(39, '', '', '', '', '', '', 'bscap030.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(40, '', '', '', '', '', '', 'bscap030.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(41, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(42, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(43, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(44, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(45, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(46, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(47, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(48, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(49, '', '', '', '', '', '', 'bscap009.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(50, '', '', '', '', '', '', 'bscap021.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(51, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(52, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(53, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(54, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(55, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(56, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(57, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(58, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(59, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(60, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(61, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(62, '', '', '', '', '', '', 'bscap000.jpg', '', '', 0.00, '', '', '', '', '', '', ''),
+	(63, '', '', '', '', '', '', 'bscap025.jpg', '', '', 0.00, '', '', '', '', '', '', '');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 

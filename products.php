@@ -54,48 +54,50 @@
     }
     $res = $crud->readData($sql);
 
-    foreach ($res as $row) {
-        echo '<form method="get" action="product_detail.php">';
-            echo '<div class="col-m-4 product-thumbnail-width">';
-                echo '<button type="submit" name="name" value="' . $row["productID"] . '" class="col-m-12 col-12 page-product-button">';
-                    echo '<div class="product-header">';
-                        echo '<div class="product-thumbnail-title">';
-                            echo $row['productTitle'];
+//    echo '<div class="row">';
+        foreach ($res as $row) {
+            echo '<div class="col-3">';
+                echo '<form method="get" action="product_detail.php">';
+                    echo '<button type="submit" name="name" value="' . $row["productID"] . '" class="page-product-button">';
+                        echo '<div class="product-header">';
+                            echo '<div class="product-thumbnail-title">';
+                                echo $row['productTitle'];
+                            echo '</div>';
+                            echo '<div style="max-width:500px;" class="div-img-product-info">';
+                                echo '<img src="img/product/' . $row['productImage'] . '  " class="img-product-info" />';
+                            echo '</div>';
+
+                            echo '<div class="div-product-info">';
+                                echo '<span class="product-description">';
+                                    echo '* ' . $row['productHighlight1'] . '<br />';
+                                    echo '* ' . $row['productHighlight2'] . '<br />';
+                                    echo '* ' . $row['productHighlight3'];
+                                echo '</span>';
+
+                                echo '<span class="product-price" >';
+                                    echo '<span class="product-price-total">';
+                                        echo 'Totaal: &euro;' . number_format($row['productPrice'], 2, ',', '');
+                                    echo '</span>';
+                                    echo '<span class="product-price-btw">';
+                                        echo 'excl. btw: &euro;' . number_format(($row['productPrice'] / 1.21), 2, ',', '');
+                                    echo '</span>';
+
+                                    echo '<span class="product-stock">';
+                                        echo 'Stock: ' . $row['productStock'];
+                                    echo '</span>';
+                                    // a href in button met in winkelwagen, requesturi + name=id?
+                                    echo '<span class="product-add-to-cart">';
+                                        echo 'In winkelwagen';
+                                    echo '</span>';
+
+                                echo '</span>';
+                            echo '</div>';
                         echo '</div>';
-                        echo '<div style="max-width:500px;" class="div-img-product-info">';
-                            echo '<img src="img/product/' . $row['productImage'] . '  " class="img-product-info" />';
-                        echo '</div>';
-
-                        echo '<div class="div-product-info">';
-                            echo '<span class="product-description">';
-                                echo '* ' . $row['productHighlight1'] . '<br />';
-                                echo '* ' . $row['productHighlight2'] . '<br />';
-                                echo '* ' . $row['productHighlight3'];
-                            echo '</span>';
-
-                            echo '<span class="product-price" >';
-                                echo '<span class="product-price-total">';
-                                    echo 'Totaal: &euro;' . number_format($row['productPrice'], 2, ',', '');
-                                echo '</span>';
-                                echo '<span class="product-price-btw">';
-                                    echo 'excl. btw: &euro;' . number_format(($row['productPrice'] / 1.21), 2, ',', '');
-                                echo '</span>';
-
-                                echo '<span class="product-stock">';
-                                    echo 'Stock: ' . $row['productStock'];
-                                echo '</span>';
-                                // a href in button met in winkelwagen, requesturi + name=id?
-                                echo '<span class="product-add-to-cart">';
-                                    echo 'In winkelwagen';
-                                echo '</span>';
-
-                            echo '</span>';
-                        echo '</div>';
-                    echo '</div>';
-                echo '</button>';
+                    echo '</button>';
+                echo '</form>';
             echo '</div>';
-        echo '</form>';
-    }
+        }
+//    echo '</div>';
 
     $sql = "SELECT * FROM $tableName";
     $res = $crud->readData($sql);

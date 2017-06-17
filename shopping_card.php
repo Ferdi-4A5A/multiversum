@@ -8,11 +8,7 @@
 
 <!--
 
-Aantal/product/price/verwijderknop
-Verzendwijze(dropdown)
-Orderkosten/totaalprijs(excl. BTW(21%))/totaalprijs incl. BTW  <- onder elkaar obv
-afrekenknop
-https://www.4launch.nl/winkelwagen nice voorbeeld
+// gaat iets niet goed met aantal aanpassen, word product ook toegevoegd als die nog niet bestaat
 
 -->
 
@@ -43,6 +39,8 @@ https://www.4launch.nl/winkelwagen nice voorbeeld
                 $crud->createData($sql);
             }
 
+
+
         // if there is no shopping card
         } elseif (!isset($_SESSION['orderID'])) {
             $_SESSION = array();
@@ -63,11 +61,9 @@ https://www.4launch.nl/winkelwagen nice voorbeeld
         $crud->deleteData($sql);
     }
 
-            $sql = "SELECT ordersProducts.orderProductID, ordersProducts.productID, ordersProducts.productAmount, products.productTitle, products.productPrice FROM ordersProducts 
+    $sql = "SELECT ordersProducts.orderProductID, ordersProducts.productID, ordersProducts.productAmount, products.productTitle, products.productPrice FROM ordersProducts 
                     INNER JOIN products ON ordersProducts.productID = products.productID WHERE orderID = '".$_SESSION['orderID']. "'";
-            $res = $crud->readData($sql);
-
-
+    $res = $crud->readData($sql);
 
 
     // je MOET eerst een order aanmaken en dat orderID meenemen naar ordersProducts !?
@@ -88,7 +84,7 @@ https://www.4launch.nl/winkelwagen nice voorbeeld
 
 
 
-
+    if (isset($_SESSION['orderID'])) {
         echo '<div class="col-m-12">';
             echo '<table border="1" class="table-products">';
                 echo '<tr>';
@@ -97,18 +93,18 @@ https://www.4launch.nl/winkelwagen nice voorbeeld
                     echo '<th>Prijs</th>';
                     echo '<th>Totaal</th>';
                     echo '<th>Verwijder</th>';
-                    echo '</tr>';
-        foreach ($res as $row) {
-                echo '<tr>';
-                    echo '<td><form method="post" action=""><input type="number" name="input-amount" value="' . $row['productAmount'] . '"/><button type="submit" name="btn-amount" value="'. $row['orderProductID'] . '">Submit</button></form></td>';
-                    echo '<td>' . $row['productTitle'] . '</td>';
-                    echo '<td>&euro; ' . $row['productPrice'] . '</td>';
-                    echo '<td>&euro; ' . $row['productPrice'] * $row['productAmount'] . '</td>';
-                    echo '<td><form method="post" action=""><button type="submit" name="btn-delete" value="'. $row['orderProductID'] . '">X</button></form></td>';
                 echo '</tr>';
-        }
-                echo '</table>';
-            echo '</div>';
+                foreach ($res as $row) {
+                    echo '<tr>';
+                        echo '<td><form method="post" action=""><input type="number" name="input-amount" value="' . $row['productAmount'] . '"/><button type="submit" name="btn-amount" value="'. $row['orderProductID'] . '">Submit</button></form></td>';
+                        echo '<td>' . "<a href=http://multiversum.dev/product_detail.php?name=".$row['productID'].">".$row['productTitle']."</a>" . '</td>';
+                        echo '<td>&euro; ' . $row['productPrice'] . '</td>';
+                        echo '<td>&euro; ' . $row['productPrice'] * $row['productAmount'] . '</td>';
+                        echo '<td><form method="post" action=""><button type="submit" name="btn-delete" value="'. $row['orderProductID'] . '">X</button></form></td>';
+                    echo '</tr>';
+                }
+            echo '</table>';
+        echo '</div>';
 
 
         echo '<div class="col-m-12">';
@@ -143,7 +139,12 @@ https://www.4launch.nl/winkelwagen nice voorbeeld
 
         echo '<div class="col-m-12">';
             echo '<button type="submit">Afrekenen</button>';
-            echo '</div>';
+        echo '</div>';
+    } elseif(!isset($_SESSION['orderID'])) {
+        echo '<div class="col-m-12">';
+        echo 'U heeft nog geen artikelen in uw winkelwagen';
+        echo '</div>';
+    }
 
 
 ?>
